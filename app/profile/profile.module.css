@@ -37,7 +37,7 @@
 }
 
 
-.appointmentsGrid {
+/* .appointmentsGrid {
   display: flex;
   gap: 25px;
   flex-wrap: wrap;
@@ -53,4 +53,54 @@
 .appointmentCard h3 {
   color: #3E1D17;
   margin-bottom: 10px;
+} */
+
+.appointmentsGrid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px 25px;
+}
+
+.card {
+  background-color: #e6dddd;
+  text-align: center;
+}
+
+.cardImage {
+  width: 100%;
+  height: 170px;
+  background-color: #3E1D17;
+}
+
+.cardContent {
+  padding: 18px;
+}
+
+.price {
+  color: #B6A39F;
+  font-size: 0.9rem;
+  margin: 0 0 8px;
+}
+
+.appointmentTitle {
+  color: #3E1D17;
+  font-size: 1.5rem;
+  margin: 0 0 8px;
+}
+
+.description {
+  font-size: 0.9rem;
+  margin: 0 0 18px;
+}
+
+.adjustBtn {
+  background-color: #3E1D17;
+  color: white;
+  border: none;
+  padding: 10px 45px;
+  cursor: pointer;
 }

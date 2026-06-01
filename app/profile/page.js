@@ -28,16 +28,28 @@ export default function Profile() {
             <p>No appointments yet.</p>
           </div>
         ) : (
-          <div className={styles.appointmentsGrid}>
+
+          <section className={styles.appointmentsGrid}>
             {appointments.map((appointment) => (
-              <div key={appointment.id} className={styles.appointmentCard}>
-                <h3>{appointment.serviceName}</h3>
-                <p>{appointment.price}</p>
-                <p>Date: {appointment.date}</p>
-                <p>Time: {appointment.time}</p>
+              <div key={appointment.id} className={styles.card}>
+                <div className={styles.cardImage}></div>
+
+                <div className={styles.cardContent}>
+                  <h2 className={styles.appointmentTitle}>{appointment.serviceName}</h2>
+                  <p>Date: {appointment.date}</p>
+                  <p>Time: {appointment.time}</p>
+                  <p>{appointment.price}</p>
+
+                  <button
+                    className={styles.adjustBtn}
+                    onClick={() => handleReserve(appointment)}
+                  >
+                    ADJUST
+                  </button>
+                </div>
               </div>
             ))}
-          </div>
+          </section>
         )}
       </section>
     </main>
