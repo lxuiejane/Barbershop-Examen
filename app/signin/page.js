@@ -1,8 +1,9 @@
 import LoginForm from "../../components/LoginForm";
+import styles from "./signin.module.css";
 
 export default function SigninPage() {
   return (
-    <main className="loginPage">
+    <main className={styles.loginPage}>
       <LoginForm />
     </main>
   );
