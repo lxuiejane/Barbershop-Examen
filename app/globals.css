@@ -1,55 +1,68 @@
+:root {
+  --font-decor: var(--font-sedgwick);
+  --font-body: var(--font-afacad);
+}
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
+  margin: 0;
+}
+
+h1, h2, button {
+    font-family: var(--font-decor);
+}
+
+p {
+    font-family: var(--font-body);
 }
 
 .navbar {
-    display: flex;
-    height: 40px;
-    justify-content: space-between;
-    background-color: #000;
-    color: white;
-    align-items: center;
-    padding: 0 35px;
+  display: flex;
+  height: 40px;
+  justify-content: space-between;
+  background-color: #000;
+  color: white;
+  align-items: center;
+  padding: 0 35px;
 }
 
 .logo img {
-    position: absolute;
-    top: 3px;
-    width: 115px;
-    height: auto;
+  position: absolute;
+  top: 3px;
+  width: 115px;
+  height: auto;
 }
 
 .navLinks {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
 }
 
 .navLinks a {
-    color: white;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 400;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 .signOut {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-    justify-self: end;
-    padding: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  justify-self: end;
+  padding: 0;
 }
 
 .navbarBottomBar {
   height: 70px;
-  background-color: #B6A39F;
+  background-color: #b6a39f;
 }
