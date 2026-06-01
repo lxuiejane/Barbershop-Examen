@@ -1,4 +1,6 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
 import styles from "./page.module.css";
 
 const services = [
@@ -30,7 +32,7 @@ const services = [
     description: "Sharp fade with a clean finish.",
     image: "/fade.jpg",
   },
-    {
+  {
     id: 5,
     name: "Styling",
     price: "€10 to €20",
@@ -48,9 +50,43 @@ const services = [
 ];
 
 export default function Home() {
+
+  const [selectedService, setSelectedService] = useState(null);
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+
+  const handleReserve = (service) => {
+    setSelectedService(service);
+  };
+
+  const handleBooking = (e) => {
+    e.preventDefault();
+
+    const newAppointment = {
+      id: Date.now(),
+      serviceName: selectedService.name,
+      price: selectedService.price,
+      date: date,
+      time: time,
+    };
+
+    const savedAppointments =
+      JSON.parse(localStorage.getItem("appointments")) || [];
+
+    savedAppointments.push(newAppointment);
+
+    localStorage.setItem("appointments", JSON.stringify(savedAppointments));
+
+    setSelectedService(null);
+    setDate("");
+    setTime("");
+
+    alert("Appointment booked!");
+  };
+
+
   return (
-    <main className={styles.container}>
-      
+     <main className={styles.container}>
       <section className={styles.header}>
         <h1 className={styles.title}>SERVICES</h1>
         <p className={styles.subtitle}>Choose from our wide range of services</p>
@@ -65,11 +101,45 @@ export default function Home() {
               <p className={styles.price}>{service.price}</p>
               <h2 className={styles.serviceTitle}>{service.name}</h2>
               <p className={styles.description}>{service.description}</p>
-              <button className={styles.reserveBtn}>RESERVE</button>
+
+              <button
+                className={styles.reserveBtn}
+                onClick={() => handleReserve(service)}
+              >
+                RESERVE
+              </button>
             </div>
           </div>
         ))}
       </section>
+
+      {selectedService && (
+        <div className={styles.bookingOverlay}>
+          <form className={styles.bookingForm} onSubmit={handleBooking}>
+            <h2>Book {selectedService.name}</h2>
+
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              required
+            />
+
+            <input
+              type="time"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+              required
+            />
+
+            <button type="submit">BOOK APPOINTMENT</button>
+
+            <button type="button" onClick={() => setSelectedService(null)}>
+              CANCEL
+            </button>
+          </form>
+        </div>
+      )}
     </main>
   );
 }
