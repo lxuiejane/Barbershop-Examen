@@ -17,7 +17,6 @@ export default function Navbar() {
                 <button className="signOut">Sign Out</button>
 
             </nav>
-            <div className="navbarBottomBar"></div>
         </>
     );
 }
