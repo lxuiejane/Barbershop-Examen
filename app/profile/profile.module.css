@@ -36,25 +36,6 @@
   font-size: 1rem;
 }
 
-
-/* .appointmentsGrid {
-  display: flex;
-  gap: 25px;
-  flex-wrap: wrap;
-}
-
-.appointmentCard {
-  background-color: #ddd0cd;
-  padding: 25px;
-  width: 220px;
-  text-align: center;
-}
-
-.appointmentCard h3 {
-  color: #3E1D17;
-  margin-bottom: 10px;
-} */
-
 .appointmentsGrid {
   max-width: 1100px;
   margin: 0 auto;
@@ -78,12 +59,6 @@
 
 .cardContent {
   padding: 18px;
-}
-
-.price {
-  color: #B6A39F;
-  font-size: 0.9rem;
-  margin: 0 0 8px;
 }
 
 .appointmentTitle {
