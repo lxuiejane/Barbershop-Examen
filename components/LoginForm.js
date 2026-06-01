@@ -63,7 +63,7 @@ export default function LoginForm() {
 
       <div className={styles.buttonContainer}>
         <button type="submit" className={styles.signButton}>
-          Sign In
+          SIGN IN
         </button>
 
         <p className={styles.linkText}>
