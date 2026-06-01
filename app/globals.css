@@ -1,35 +1,46 @@
-* {
-    box-sizing: border-box;
+:root {
+  --font-decor: var(--font-sedgwick);
+  --font-body: var(--font-afacad);
 }
 
-body {
-    margin: 0;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, button {
+    font-family: var(--font-decor);
+}
+
+p {
+    font-family: var(--font-body);
 }
 
 .navbar {
-    display: flex;
-    height: 40px;
-    justify-content: space-between;
-    background-color: #000;
-    color: white;
-    align-items: center;
-    padding: 0 35px;
+  display: flex;
+  height: 40px;
+  justify-content: space-between;
+  background-color: #000;
+  color: white;
+  align-items: center;
+  padding: 0 35px;
 }
 
 .logo img {
-    position: absolute;
-    top: 3px;
-    width: 115px;
-    height: auto;
+  position: absolute;
+  top: 3px;
+  width: 115px;
+  height: auto;
 }
 
 .navLinks {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
 }
 
 .navLinks a {
@@ -53,5 +64,5 @@ body {
 
 .navbarBottomBar {
   height: 70px;
-  background-color: #B6A39F;
+  background-color: #b6a39f;
 }

@@ -58,7 +58,7 @@ export default function RegisterForm() {
 
       <div className={styles.buttonContainer}>
         <button type="submit" className={styles.signButton}>
-          Sign Up
+          SIGN UP
         </button>
         <p className={styles.linkText}>
           Already have an account? <Link href="/signin">Sign in here.</Link>
