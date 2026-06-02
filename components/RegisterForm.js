@@ -6,6 +6,7 @@ import Link from "next/link";
 import styles from "../app/signup/signup.module.css";
 
 export default function RegisterForm() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -19,7 +20,7 @@ export default function RegisterForm() {
     // '[]' als er nog geen users zijn opgeslagen.
     const users = JSON.parse(localStorage.getItem("users") || "[]");
 
-    users.push({ email, password });
+    users.push({ name, email, password });
     localStorage.setItem("users", JSON.stringify(users));
 
     router.push("/signin");
@@ -32,6 +33,16 @@ export default function RegisterForm() {
         <p>Searching for a new cut?</p>
       </div>
       <div>
+        <div>
+          <input
+            className={styles.inputSign}
+            type="text"
+            placeholder="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
         <div>
           <input
             className={styles.inputSign}
