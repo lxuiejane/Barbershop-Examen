@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 
 const services = [
@@ -50,10 +51,21 @@ const services = [
 ];
 
 export default function Home() {
+  const router = useRouter();
 
   const [selectedService, setSelectedService] = useState(null);
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [user, setUser] = useState(null);
+
+  // Check if user exists in localStorage
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   const handleReserve = (service) => {
     setSelectedService(service);
@@ -120,29 +132,50 @@ export default function Home() {
 
       {selectedService && (
         <div className={styles.bookingOverlay}>
-          <form className={styles.bookingForm} onSubmit={handleBooking}>
-            <h2>Book {selectedService.name}</h2>
+          <div className={styles.bookingForm}>
+            {!user ? (
+              <>
+                <h2>Login required</h2>
+                <p>You need to be logged in to book an appointment.</p>
 
-            <input
-              type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              required
-            />
+                <button type="button" onClick={() => router.push("/signin")}>
+                  LOGIN
+                </button>
 
-            <input
-              type="time"
-              value={time}
-              onChange={(e) => setTime(e.target.value)}
-              required
-            />
+                <button type="button" onClick={() => router.push("/signup")}>
+                  CREATE ACCOUNT
+                </button>
 
-            <button type="submit">BOOK APPOINTMENT</button>
+                <button type="button" onClick={() => setSelectedService(null)}>
+                  CANCEL
+                </button>
+              </>
+            ) : (
+              <form onSubmit={handleBooking} className={styles.bookingInnerForm}>
+                <h2>Book {selectedService.name}</h2>
 
-            <button type="button" onClick={() => setSelectedService(null)}>
-              CANCEL
-            </button>
-          </form>
+                <input
+                  type="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  required
+                />
+
+                <input
+                  type="time"
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                  required
+                />
+
+                <button type="submit">BOOK APPOINTMENT</button>
+
+                <button type="button" onClick={() => setSelectedService(null)}>
+                  CANCEL
+                </button>
+              </form>
+            )}
+          </div>
         </div>
       )}
     </main>
