@@ -20,6 +20,16 @@ export default function RegisterForm() {
     // '[]' als er nog geen users zijn opgeslagen.
     const users = JSON.parse(localStorage.getItem("users") || "[]");
 
+    
+    // Hiermee wordt er gekeken of de e-mail al in gebruik is.
+    const existingUser = users.find((user) => user.email === email);
+
+    if (existingUser) {
+      setError("This email is already registered.");
+      return;
+    }
+
+    // Voor nieuwe gebruikers.
     users.push({ name, email, password });
     localStorage.setItem("users", JSON.stringify(users));
 
@@ -75,7 +85,6 @@ export default function RegisterForm() {
           Already have an account? <Link href="/signin">Sign in here.</Link>
         </p>
       </div>
-
     </form>
   );
 }
