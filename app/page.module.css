@@ -99,13 +99,25 @@ a.secondary {
 }
 
 .header {
+  position: relative;
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  padding: 80px 0;
+}
+
+.navbarBottomBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background-color: #ddd3d2;
+  z-index: 1;
 }
 
 .title {
-  color: #3E1D17;
+  position: relative;
+  z-index: 2;
+  color: #3e1d17;
   font-size: 4rem;
   margin: 0;
 }
@@ -132,7 +144,7 @@ a.secondary {
 .cardImage {
   width: 100%;
   height: 170px;
-  background-color: #3E1D17;
+  background-color: #3e1d17;
 }
 
 .cardContent {
@@ -140,13 +152,13 @@ a.secondary {
 }
 
 .price {
-  color: #B6A39F;
+  color: #b6a39f;
   font-size: 0.9rem;
   margin: 0 0 8px;
 }
 
 .serviceTitle {
-  color: #3E1D17;
+  color: #3e1d17;
   font-size: 1.5rem;
   margin: 0 0 8px;
 }
@@ -157,13 +169,12 @@ a.secondary {
 }
 
 .reserveBtn {
-  background-color: #3E1D17;
+  background-color: #3e1d17;
   color: white;
   border: none;
   padding: 10px 45px;
   cursor: pointer;
 }
-
 
 .bookingOverlay {
   position: fixed;
@@ -188,7 +199,7 @@ a.secondary {
 }
 
 .bookingForm h2 {
-  color: #3E1D17;
+  color: #3e1d17;
   text-align: center;
 }
 
@@ -198,14 +209,12 @@ a.secondary {
 }
 
 .bookingForm button {
-  background-color: #3E1D17;
+  background-color: #3e1d17;
   color: white;
   border: none;
   padding: 10px;
   cursor: pointer;
 }
-
-
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {

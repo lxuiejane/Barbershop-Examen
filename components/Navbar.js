@@ -19,7 +19,7 @@ export default function Navbar() {
       setUser(null);
     }
   }, [pathname]);
-//   Pathname is used so that the navbar updates when the user logs in or out, without needing to refresh the page.
+  //   Pathname is used so that the navbar updates when the user logs in or out, without needing to refresh the page.
 
   function handleLogout() {
     localStorage.removeItem("user");
@@ -30,53 +30,52 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="navbar">
-      <div className="logo">
-        <img src="/logo2.png" alt="Urban Edge" />
-      </div>
+    <>
+      <nav className="navbar">
+        <div className="logo">
+          <img src="/logo2.png" alt="Urban Edge" />
+        </div>
 
-      <ul className="navLinks">
-        <li>
-          <Link href="/">Services</Link>
-        </li>
+        <ul className="navLinks">
+          <li>
+            <Link href="/">Services</Link>
+          </li>
 
-        <li>
-          <Link href="/profile">Profile</Link>
-        </li>
+          <li>
+            <Link href="/profile">Profile</Link>
+          </li>
 
-        <li>
-          <Link href="/contact">Contact</Link>
-        </li>
-      </ul>
+          <li>
+            <Link href="/contact">Contact</Link>
+          </li>
+        </ul>
 
-      <ul className="authLinks">
-        {user ? (
-          <>
-            <li>Hello, {user.name}</li>
+        <ul className="authLinks">
+          {user ? (
+            <>
+              <li>Hello, {user.name}</li>
 
-            <p>|</p>
+              <p>|</p>
 
-            <li
-              onClick={handleLogout}
-              style={{ cursor: "pointer" }}
-            >
-              Sign Out
-            </li>
-          </>
-        ) : (
-          <>
-            <li>
-              <Link href="/signin">Sign In</Link>
-            </li>
+              <li onClick={handleLogout} style={{ cursor: "pointer" }}>
+                Sign Out
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link href="/signin">Sign In</Link>
+              </li>
 
-            <p>|</p>
+              <p>|</p>
 
-            <li>
-              <Link href="/signup">Sign Up</Link>
-            </li>
-          </>
-        )}
-      </ul>
-    </nav>
+              <li>
+                <Link href="/signup">Sign Up</Link>
+              </li>
+            </>
+          )}
+        </ul>
+      </nav>
+    </>
   );
 }

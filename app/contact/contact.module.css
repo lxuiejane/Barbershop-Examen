@@ -4,13 +4,14 @@
   background-color: white;
 }
 
+
 .header {
   text-align: center;
   margin-bottom: 45px;
 }
 
 .title {
-  color: #3E1D17;
+  color: #3e1d17;
   font-size: 4rem;
   margin: 0;
 }
@@ -30,7 +31,7 @@
 }
 
 .socials h2 {
-  color: #3E1D17;
+  color: #3e1d17;
   font-size: 1rem;
   margin-bottom: 15px;
 }
@@ -71,7 +72,7 @@
 }
 
 .contactForm button {
-  background-color: #3E1D17;
+  background-color: #3e1d17;
   color: white;
   border: none;
   padding: 12px;

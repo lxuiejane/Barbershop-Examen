@@ -46,11 +46,9 @@ const services = [
     description: "Simple haircut for children.",
     image: "/Kidscut.png",
   },
-
 ];
 
 export default function Home() {
-
   const [selectedService, setSelectedService] = useState(null);
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -85,12 +83,14 @@ export default function Home() {
     alert("Appointment booked!");
   };
 
-
   return (
     <main className={styles.container}>
       <section className={styles.header}>
+        <div className={styles.navbarBottomBar}></div>
         <h1 className={styles.title}>SERVICES</h1>
-        <p className={styles.subtitle}>Choose from our wide range of services</p>
+        <p className={styles.subtitle}>
+          Choose from our wide range of services
+        </p>
       </section>
 
       <section className={styles.servicesGrid}>
