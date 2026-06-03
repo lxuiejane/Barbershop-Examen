@@ -2,19 +2,32 @@
   display: flex;
   flex-direction: column; 
   justify-content: center;
-  align-items: center;
   min-height: 90vh;
+  min-width: 100vw;
   background-color: white;
 }
 
 .header {
+  position: relative;
   text-align: center;
-  margin-bottom: 60px;
+  padding: 40px 0;
+}
+
+.navbarBottomBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  background-color: #ddd3d2;
+  z-index: 1;
 }
 
 .title {
-  color: #3E1D17;
-  font-size: 3.5rem;
+  position: relative;
+  z-index: 2;
+  color: #3e1d17;
+  font-size: 4rem;
   margin: 0;
 }
 
@@ -91,10 +104,10 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 999;
 }
 
 .bookingForm {

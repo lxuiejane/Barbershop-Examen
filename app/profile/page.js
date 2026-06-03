@@ -61,7 +61,7 @@ export default function Profile() {
 
   const handleDelete = () => {
     const updatedAppointments = appointments.filter(
-      (appointment) => appointment.id !== selectedAppointment.id
+      (appointment) => appointment.id !== selectedAppointment.id,
     );
 
     setAppointments(updatedAppointments);
@@ -82,17 +82,22 @@ export default function Profile() {
       <main className={styles.profilePage}>
         <section className={styles.header}>
           <h1 className={styles.title}>PROFILE ACCOUNT</h1>
-
           <p className={styles.subTitle}>
             Log in or create an account to see your profile.
           </p>
 
           <div>
-            <button className={styles.adjustBtn} onClick={() => router.push("/signin")}>
+            <button
+              className={styles.adjustBtn}
+              onClick={() => router.push("/signin")}
+            >
               Login
             </button>
 
-            <button className={styles.adjustBtn} onClick={() => router.push("/signup")}>
+            <button
+              className={styles.adjustBtn}
+              onClick={() => router.push("/signup")}
+            >
               Create Account
             </button>
           </div>
@@ -105,11 +110,9 @@ export default function Profile() {
   return (
     <main className={styles.profilePage}>
       <section className={styles.header}>
+        <div className={styles.navbarBottomBar}></div>
         <h1 className={styles.title}>PROFILE ACCOUNT</h1>
-
-        <p className={styles.subtitle}>
-          Welcome, {user.name}!
-        </p>
+        <p className={styles.subtitle}>Welcome, {user.name}!</p>
       </section>
 
       <section className={styles.appointmentsSection}>
