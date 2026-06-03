@@ -25,7 +25,11 @@ export default function LoginForm() {
       return;
     }
 
+    // Save logged in user
+    localStorage.setItem("user", JSON.stringify(user));
+
     router.push("/");
+    router.refresh();
   }
 
   return (

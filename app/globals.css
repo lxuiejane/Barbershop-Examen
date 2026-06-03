@@ -9,12 +9,14 @@
   margin: 0;
 }
 
-h1, h2, button {
-    font-family: var(--font-decor);
+h1,
+h2,
+button {
+  font-family: var(--font-decor);
 }
 
 p {
-    font-family: var(--font-body);
+  font-family: var(--font-body);
 }
 
 .navbar {
@@ -56,6 +58,7 @@ p {
   display: flex;
   justify-content: center;
   gap: 8px;
+  font-family: var(--font-body);
 }
 
 .authLinks a {

@@ -1,19 +1,33 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./profile.module.css";
 
 export default function Profile() {
+  const router = useRouter();
+
   const [appointments, setAppointments] = useState([]);
   const [selectedAppointment, setSelectedAppointment] = useState(null);
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const savedAppointments =
-      JSON.parse(localStorage.getItem("appointments")) || [];
+    // Check if user exists in localStorage
+    const storedUser = localStorage.getItem("user");
 
-    setAppointments(savedAppointments);
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+
+      const savedAppointments =
+        JSON.parse(localStorage.getItem("appointments")) || [];
+
+      setAppointments(savedAppointments);
+    }
+
+    setLoading(false);
   }, []);
 
   const handleAdjust = (appointment) => {
@@ -58,11 +72,44 @@ export default function Profile() {
     setTime("");
   };
 
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  // NOT LOGGED IN
+  if (!user) {
+    return (
+      <main className={styles.profilePage}>
+        <section className={styles.header}>
+          <h1 className={styles.title}>PROFILE ACCOUNT</h1>
+
+          <p className={styles.subTitle}>
+            Log in or create an account to see your profile.
+          </p>
+
+          <div>
+            <button className={styles.adjustBtn} onClick={() => router.push("/signin")}>
+              Login
+            </button>
+
+            <button className={styles.adjustBtn} onClick={() => router.push("/signup")}>
+              Create Account
+            </button>
+          </div>
+        </section>
+      </main>
+    );
+  }
+
+  // LOGGED IN
   return (
     <main className={styles.profilePage}>
       <section className={styles.header}>
         <h1 className={styles.title}>PROFILE ACCOUNT</h1>
-        <p className={styles.subtitle}>Welcome to your profile!</p>
+
+        <p className={styles.subtitle}>
+          Welcome, {user.name}!
+        </p>
       </section>
 
       <section className={styles.appointmentsSection}>
