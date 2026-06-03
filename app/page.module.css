@@ -218,6 +218,7 @@ a.secondary {
 
 .bookingForm button {
   background-color: #3e1d17;
+  min-width: 15rem;
   color: white;
   border: none;
   padding: 10px;
