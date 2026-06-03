@@ -78,3 +78,44 @@
   padding: 10px 45px;
   cursor: pointer;
 }
+
+
+.bookingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookingForm {
+  background-color: #ddd0cd;
+  padding: 35px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bookingForm h2 {
+  color: #3E1D17;
+  text-align: center;
+}
+
+.bookingForm input {
+  padding: 10px;
+  border: none;
+}
+
+.bookingForm button {
+  background-color: #3E1D17;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
