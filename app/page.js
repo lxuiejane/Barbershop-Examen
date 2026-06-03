@@ -168,7 +168,9 @@ export default function Home() {
                   required
                 />
 
-                <button type="submit">BOOK APPOINTMENT</button>
+                <button type="submit">
+                  BOOK APPOINTMENT
+                </button>
 
                 <button type="button" onClick={() => setSelectedService(null)}>
                   CANCEL
